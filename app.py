@@ -3,15 +3,23 @@
 
 from flask import Flask
 
-# Cria uma instância da aplicação Flask
 app = Flask(__Name__)
-# Estte é um decorador que associa a url
-# '/' (a URL raiz do site) à função que vem logo a baixo.
+
 @app.route('/')
-# A função que é executada quando a rota '/' é acessada.
-# Ela retorna a string "hello world"
 def hello_world():
     return 'Hello, world!'
-    # executa o servidor de desenvolvimento
+return render_template ('index.html')
+
+@app.route ('/login', methods == ['GET','POST'])
+def login ():
+    error = None
+    if request.methods == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+if username == 'admin' and password == 'password'
+else:
+    error='Você errou suas credenciais meu pitelzinho, meu xuxu.'
+    return render_template ('login.html', error=error)
+
     if__name__=='__main__'
     app.run(debug=True)
